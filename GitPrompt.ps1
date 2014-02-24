@@ -134,14 +134,14 @@ function Write-GitStatus($status) {
 
         if ($WindowTitleSupported -and $s.EnableWindowTitle) {
             if( -not $Global:PreviousWindowTitle ) {
-                $Global:PreviousWindowTitle = $Host.UI.RawUI.WindowTitle
+                # $Global:PreviousWindowTitle = $Host.UI.RawUI.WindowTitle
             }
             $repoName = Split-Path -Leaf (Split-Path $status.GitDir)
             $prefix = if ($s.EnableWindowTitle -is [string]) { $s.EnableWindowTitle } else { '' }
-            $Host.UI.RawUI.WindowTitle = "$prefix$repoName [$($status.Branch)]"
+            # $Host.UI.RawUI.WindowTitle = "$prefix$repoName [$($status.Branch)]"
         }
     } elseif ( $Global:PreviousWindowTitle ) {
-        $Host.UI.RawUI.WindowTitle = $Global:PreviousWindowTitle
+        # $Host.UI.RawUI.WindowTitle = $Global:PreviousWindowTitle
     }
 }
 
